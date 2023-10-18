@@ -17,15 +17,18 @@
     </header>
     <section id="events">
         <h2>Events in Action</h2>
-        <button v-on:click="add(1)">Add</button>
-        <button v-on:click="add(5)">Add 5</button>
-        <button v-on:click="minus(1)">Remove</button>
-        <button v-on:click.right="minus(5)">Remove 5</button>
+        <button @click="add(1)">Add</button>
+        <button @click="add(5)">Add 5</button>
+        <button @click="minus(1)">Remove</button>
+        <button @click.right="minus(5)">Remove 5</button>
         <p v-once>Starting Counter: {{ counter }}</p>
         <p>Result: {{ counter }}</p>
-        <input type="text" v-on:input="setName($event, 'Larson')" v-on:keyup.enter="confirmInput">
-        <p>Your Name: {{ confirmedName }}</p>
-        <form v-on:submit.prevent="submitForm">
+        <input type="text" v-model="name">
+        <input type="text" v-model="lastName">
+        <button @click="resetInput">Reset Input</button>
+        <p>Your Name: {{ fullname }}</p>
+        <p>Your Name: {{ fullname2 }}</p>
+        <form @submit.prevent="submitForm">
             <input type="text">
             <button>Sign Up</button>
         </form>
